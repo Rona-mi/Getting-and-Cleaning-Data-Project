@@ -55,7 +55,7 @@ data <- cbind(subject_all, activity_all, data_all_extracted)
 # - Jerk = sudden movement acceleration
 # - Mag = magnitude of movement
 # - mean and SD are calculated for each subject for each activity for each mean and SD measurements. 
-#  The units given are g’s for the accelerometer and rad/sec for the gyro and g/sec and rad/sec/sec for the corresponding jerks.
+#  The units given are gâ€™s for the accelerometer and rad/sec for the gyro and g/sec and rad/sec/sec for the corresponding jerks.
 names(data)<-gsub("Acc", "Accelerometer", names(data))
 names(data)<-gsub("Gyro", "Gyroscope", names(data))
 names(data)<-gsub("BodyBody", "Body", names(data))
@@ -75,4 +75,4 @@ tidyData <- aggregate(. ~ Subject + Activity_ID + Activity_Label, data, mean)
 tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity_ID),]
 
 # Write tidyData into data file tidydata.txt that contains the processed data.
-write.table(tidydata, file = "./tidydata.txt")
+write.table(tidydata, file = "./tidydata.txt", row.name=FALSE)
